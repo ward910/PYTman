@@ -1,15 +1,16 @@
 import datetime
 from flask import Flask, render_template
+from randomText import text, title, link
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    nameArticle = 'Python'
+    titleArticle = title
+    textArticle = text
+    linkArticle = link
     date = datetime.date.today().strftime('%m/%d/%Y')
-    text = 'Python is a high-level programming language, interpreted as scripting, imperative, object-oriented, functional, dynamic and strong typing. (Wikipedia)'
-    linkNavbr = ''
-    return render_template('index.html', nameArticle=nameArticle, date=date, textArticle=text, linkNavbr=linkNavbr)
+    return render_template('index.html', titleArticle=titleArticle, date=date, textArticle=textArticle, linkArticle=linkArticle)
 
 
 

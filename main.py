@@ -1,14 +1,15 @@
 import datetime
 from flask import Flask, render_template
-from randomText import text, title, link
+from randomSwitch import randomSwitch
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    titleArticle = title
-    textArticle = text
-    linkArticle = link
+    ArticleContent = randomSwitch()
+    titleArticle = ArticleContent[0]
+    textArticle = ArticleContent[1]
+    linkArticle = ArticleContent[2]
     date = datetime.date.today().strftime('%m/%d/%Y')
     return render_template('index.html', titleArticle=titleArticle, date=date, textArticle=textArticle, linkArticle=linkArticle)
 

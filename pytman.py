@@ -20,5 +20,12 @@ def about():
                 """
     return render_template('about.html', textAbout=textAbout)
 
+@app.route('/photos')
+def photos():
+
+    picsumPhotosAPI = "https://picsum.photos/300/300"
+
+    return render_template('photos.html', picsumPhotosAPI=picsumPhotosAPI)
+
 if __name__ == "__main__":
     app.run()

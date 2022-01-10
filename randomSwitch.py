@@ -2,7 +2,7 @@ from randomText import exports
 
 
 def randomSwitch():
-    random = exports.get("random")
+    random = exports.get("numberRandom")
     title = exports.get("titleRandom")
     text = exports.get("textRandom")
     link = exports.get("linkRandom")

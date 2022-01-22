@@ -1,15 +1,17 @@
 import datetime
+from random import randint
 from flask import Flask, render_template
-from randomSwitch import randomSwitch
+from content import Text
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    ArticleContent = randomSwitch()
-    titleArticle = ArticleContent[0]
-    textArticle = ArticleContent[1]
-    linkArticle = ArticleContent[2]
+    number = randint(0, 2)
+    Article = Text(number)
+    titleArticle = Article.getText['Title']
+    textArticle = Article.getText['Text']
+    linkArticle = Article.getText['Link']
     date = datetime.date.today().strftime('%m/%d/%Y')
     return render_template('index.html', titleArticle=titleArticle, date=date, textArticle=textArticle, linkArticle=linkArticle)
 

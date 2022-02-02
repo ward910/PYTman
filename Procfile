@@ -1,1 +1,1 @@
-web gunicorn pytman:app 
+web gunicorn main:app 
